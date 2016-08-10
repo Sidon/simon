@@ -1,0 +1,56 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Simon Says By Sidon || 2016</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/simon.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/simon.js"></script>
+
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+</head>
+
+
+<body>
+  <div id="title">
+    <h1> Simon Says</h1>
+    <p>
+      A Freecodecamp project By Sidon | 2016
+    </p>
+  </div>
+
+  <div class="container wrapper">
+    <div id='cards'>
+      <div class="cards row">
+        <button id='green'>&#20</button>
+        <button id='red'>&#20</button>
+      </div>
+      <div class="cards row">
+        <button id='blue'>&#20</button>
+        <button id='yellow'>&#20</button>
+      </div>
+      <br/>
+    </div>
+    <div id="controls" class='row'>
+      <div class="choice notification-icon">
+        <span title='Steps in current serie'>Strict:</span>
+        <input id='t1' type="checkbox" checked data-toggle="toggle" data-size="mini">
+        <span title='Ranking' id='ranking' class="badge">0/20</span>
+      </div>
+      <div id='restart'>
+        <button id="btrestart" class='btn btn-xs btn-primary'>Start</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
