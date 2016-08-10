@@ -87,11 +87,18 @@ border-radius:5px;
 }
 
 #ranking {
-  margin-left: 30px;
 }
 
 #title {
   padding:25px;
   width:100%;
   text-align:center;
+}
+
+#counts {
+  float:left;
+  display: flex;
+  display: inline;
+  align-items: center !important;
+  margin-left: 30px;
 }

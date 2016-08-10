@@ -19,7 +19,6 @@
 
 </head>
 
-
 <body>
   <div id="title">
     <h1> Simon Says</h1>
@@ -43,8 +42,13 @@
     <div id="controls" class='row'>
       <div class="choice notification-icon">
         <input id='t1' type="checkbox" checked data-toggle="toggle" data-size="mini" data-on="Strict" data-off="Normal">
-        <span title='Ranking' id='ranking' class="badge">0/20</span>
       </div>
+
+      <div id = 'counts' class="choice notification-icon">
+        <span title='Rounds' id='rounds' class="badge">0/20</span>
+        <span title='Ranking' id='ranking' class="badge">0/0</span>
+      </div>
+
       <div id='restart'>
         <button id="btrestart" class='btn btn-xs btn-primary'>Start</button>
       </div>

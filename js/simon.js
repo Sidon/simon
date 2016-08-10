@@ -7,32 +7,35 @@ sounds = {
   "#yellow": new Audio("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3")
 };
 
-function start() {
-  newRound('start')
-}
-
 function init() {
   $('#cards').click( function(e) { getclick(e) })
+  $('#btrestart').unbind();
   $('#btrestart').click( function() {resetGame(); newRound('start')})
   resetGame()
+  newRound('start')
 }
 
 function getclick(e) {
   var click = '#'+e.target.id
   last = clone.shift()
   sounds[click].play()
-
-  console.log('click: ', click)
-  console.log('last: ', last)
-
   if (click !== last) {
-    console.log('you lost')
-    alert('Wrong! See the serie and try again')
-    newRound('lost')
+    console.log('wrong')
+    if (strict==false) {
+      alert('Wrong! See the serie and try again')
+      newRound('lostNS')
+    } else {
+      alert('Wrong! Strict mode, begin new sequence')
+      sequence=[];
+      newRound('lostS')
+    }
   } else {
     if (clone.length === 0) {
-      console.log('you won')
       wons++;
+      if (wons>=20) {
+        alert('Game Over, You Won!');
+        location.reload();
+      }
       newRound('win');
     }
   }
@@ -48,13 +51,10 @@ function resetGame() {
 function newRound(status) {
   var i=0, seq, $seq;
   // Randomize next play
-  if (status !== 'lost') {
+  if (status !== 'lostNS') {
     sequence.push( options[Math.floor(Math.random()*options.length)] );
   }
   clone = sequence.slice(0);
-
-  console.log('sequence: ', sequence)
-
   interval = setInterval(function() {
     $seq = $(sequence[i])
     if (i < sequence.length) {
@@ -65,9 +65,9 @@ function newRound(status) {
     }
   },1000);
   if (status !== 'lost') {
-    $('#controls #ranking').text(++rounds+'/'+20)
+    $('#controls #rounds').text(++rounds+'/'+20)
+    $('#controls #ranking').text(wons+'/'+rounds)
   }
-
 }
 
 function animeButton(_seq) {
@@ -76,7 +76,8 @@ function animeButton(_seq) {
   setTimeout(function() {_seq.removeClass("blink")}, 600)
 }
 
- $(document).ready(function() {
+$(document).ready(function() {
     $('#t1').bootstrapToggle('off');
-    init();
+    $('#t1').change(function() {strict=(strict==true ? false : true)})
+    $('#btrestart').click( function() {init()})
  });
